@@ -76,13 +76,31 @@ img {
 
 .header-modal-button {
     position: absolute;
+   
     top: 20px;
     right: 20px;
     background-color: transparent;
     border: none;
+    cursor: pointer;
+    transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .js-close-menu {
     fill:#FFF;
+}
+.header-modal-button:focus,
+.header-modal-button:hover {
+    fill: #FD9222;
+  
+}
+.x-button {
+    width: 28px;
+    height: 28px;
+    transition: 250ms ease-in-out;
+}
+.x-button:hover,
+.x-button:focus {
+    width: 40px;
+    height: 40px;
 }
 
 .header-nav-mobile {
@@ -102,7 +120,7 @@ img {
     color: var(--WHITE);
     font-weight: 500;
     line-height: 1.14;
-    transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1)
+    transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1)
 }
 
 .nav-mobile .link:focus,
@@ -130,20 +148,20 @@ img {
     border: none;
     background-color: transparent;
 }
-    
-.js-menu-container {
-    background-color: var(--DARK-BKG);
-    z-index: 999;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    transform: translateX(100%);
-    transition: transform 250ms ease-in-out;
-    display: flex;
-    flex-direction: column;
-}
+        .js-menu-container {
+            background-color: var(--DARK-BKG);
+            z-index: 999;
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: 220px;
+            height: 812px;
+            transform: translateX(100%);
+            transition: transform 250ms ease-in-out;
+            display: flex;
+            flex-direction: column;
+        }
+
     
 .js-menu-container.is-open {
     transform: translateX(0);
@@ -169,18 +187,23 @@ img {
     }
 }
 
+
 /* ========== MOBILE ========== */
-@media screen and (max-width: 767px) {
+@media screen and (min-width 375px) {
     .header-container {
         padding-top: 20px;
         padding-bottom: 14px;
     }
-
-    .header-sm-mobile {
-        margin-left: 20px;
-        margin-bottom: 20px;
-    }
+   .header-sm-mobile {
+       margin-left: 20px;
+       margin-bottom: 20px;
+   }
+   .header-hamburger {
+    margin-right: 20px;
+    margin-top: 20px;
+   }
 }
+
 
 /* ========== TABLET ========== */
 @media screen and (min-width: 768px) and (max-width: 1199px) {
@@ -189,9 +212,18 @@ img {
         padding-bottom: 24px;
     }
     
+    
     .header-hamburger {
         width: 32px;
         height: 32px;
+    }
+    .x-button {
+        width: 32px;
+        height: 32px;
+    }
+    .js-menu-container {
+        width: 290px;
+        height: 924px;
     }
 
     .header-modal-button {
@@ -252,7 +284,7 @@ img {
     .header-nav-links {
         display: flex;
         gap: 24px;
-        transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1)
+        transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
     }
 
     .header-nav-links .link {
@@ -260,8 +292,10 @@ img {
         font-weight: 500;
         line-height: 1.14;
         letter-spacing: -0.28px;
+        transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+        
     }
-
+  
     .header-nav-links .link:hover,
     .header-nav-links .link:focus {
         color: var(--ACCENT);
